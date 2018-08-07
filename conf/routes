@@ -1,5 +1,20 @@
 # Home
-GET        /              controllers.HomeController.index
+GET        /                     controllers.HomeController.index
 
 # Config
-GET        /config        controllers.ConfigController.getConfig
+GET        /config               controllers.ConfigController.getConfig
+
+# Http Programming
+GET        /http/echo            controllers.HttpController.echo
+GET        /http                 controllers.HttpController.index
+GET        /http/error           controllers.HttpController.error
+GET        /http/error2          controllers.HttpController.error2
+GET        /http/strange         controllers.HttpController.strange
+GET        /http/redirect        controllers.HttpController.redirect
+GET        /http/todo            controllers.HttpController.todo
+GET        /http/session         controllers.HttpController.session
+GET        /http/flash           controllers.HttpController.flash
+GET        /http/custom          controllers.HttpController.customAction
+GET        /http/custom2         controllers.HttpController.customAction2
+GET        /http/:name           controllers.HttpController.hello(name: String)
+
