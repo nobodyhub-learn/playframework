@@ -1,3 +1,6 @@
+# Assets
+GET        /assets/*file         controllers.Assets.at(path="/public", file)
+
 # Home
 GET        /                     controllers.HomeController.index
 
@@ -17,4 +20,7 @@ GET        /http/flash           controllers.HttpController.flash
 GET        /http/custom          controllers.HttpController.customAction
 GET        /http/custom2         controllers.HttpController.customAction2
 GET        /http/:name           controllers.HttpController.hello(name: String)
+
+# Twirl Template
+GET        /twirl                controllers.TemplateController.index
 

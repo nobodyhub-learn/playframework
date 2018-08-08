@@ -1,0 +1,15 @@
+@(title: String)(content: String)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="icon" type="image/ico" href="@routes.Assets.at("images/favicon.ico")">
+        <script src="@routes.Assets.at("javascripts/jquery-3.3.1.min.js")"></script>
+    </head>
+    <body>
+        @notice("success"){ color =>
+            <div>Oops, something is <span style="color:@color">Success</span></div>
+        }
+        <section class="content">@content</section>
+    </body>
+</html>
