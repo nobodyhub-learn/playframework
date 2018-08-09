@@ -1,0 +1,34 @@
+@(contact: Form[Contact])(implicit flash: Flash)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h2>@flash.get("success").getOrElse("Welcome!")</h2>
+        @if(contact.hasGlobalErrors) {
+            <ul>
+            @for(error <- contact.globalErrors) {
+                <li>@error.format</li>
+            }
+            </ul>
+        }
+        @helper.form(action = routes.FormController.submit()) {
+            @views.html.helper.CSRF.formField
+            @helper.inputText(contact("firstName"))
+            @helper.inputText(contact("lastName"))
+            @helper.inputText(contact("company"))
+            @helper.repeat(contact("informations"), min = 1) { contactInfo =>
+                @helper.inputText(contactInfo("informations.label"))
+                @helper.inputText(contactInfo("informations.email"))
+                @helper.repeat(contactInfo("phones")) { phone =>
+                    @helper.inputText(phone)
+                }
+            }
+        }
+    </body>
+</html>
+
+
